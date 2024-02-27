@@ -23,6 +23,7 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	node->n = value;
 	node->parent = parent;
 	node->left = NULL;
+	node->right = NULL;
 
 	/* handle node adjustment for non-empty right nodes */
 	if (parent->right != NULL)
