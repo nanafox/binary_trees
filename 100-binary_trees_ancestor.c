@@ -11,11 +11,13 @@
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 									 const binary_tree_t *second)
 {
+	const binary_tree_t *temp;
+	binary_tree_t *first_ancestor, *second_ancestor;
+
 	if (first == NULL || second == NULL)
 		return (NULL);
 
-	/* Check if first is an ancestor of second */
-	const binary_tree_t *temp = second;
+	temp = second;
 
 	while (temp != NULL)
 	{
@@ -24,7 +26,6 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		temp = temp->parent;
 	}
 
-	/* Check if second is an ancestor of first */
 	temp = first;
 	while (temp != NULL)
 	{
@@ -33,9 +34,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		temp = temp->parent;
 	}
 
-	/* search for the ancestor in the entire tree */
-	binary_tree_t *first_ancestor = first->parent;
-	binary_tree_t *second_ancestor = second->parent;
+	first_ancestor = first->parent;
+	second_ancestor = second->parent;
 
 	while (first_ancestor != NULL)
 	{
